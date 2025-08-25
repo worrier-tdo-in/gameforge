@@ -1,0 +1,5 @@
+#policyModal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);z-index:9999}
+#policyModal .box{background:#0b1220;border:1px solid #1f2937;border-radius:14px;max-width:560px;padding:18px;color:#e5e7eb}
+#policyModal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+button.btn{background:#1f2937;border:1px solid #334155;border-radius:10px;padding:8px 14px;color:#e5e7eb;cursor:pointer}
+button.btn:hover{opacity:.9}
