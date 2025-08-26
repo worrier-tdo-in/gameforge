@@ -42,6 +42,7 @@ if(form){
   if(!isHome) return;
   if(sessionStorage.getItem('ageGateShown') === '1') return;
   sessionStorage.setItem('ageGateShown', '1');
+
   const bd = document.createElement('div');
   bd.className = 'modal-backdrop';
   bd.innerHTML = `
@@ -54,8 +55,20 @@ if(form){
       </div>
     </div>`;
   document.body.appendChild(bd);
-  bd.style.display='flex';
-  function closeGate(){ bd.style.display='none'; bd.remove(); }
-  bd.querySelector('#age-yes').addEventListener('click', closeGate);
+  bd.style.display = 'flex';
+
+  function closeGate(){ 
+    bd.style.display = 'none'; 
+    bd.remove(); 
+  }
+
+  // ✅ Redirect when "Yes" is clicked
+  bd.querySelector('#age-yes').addEventListener('click', function(){
+    window.location.href = "/privacy.html"; // change to your target page
+  });
+
+  // ✅ Just close modal when "No" is clicked
   bd.querySelector('#age-no').addEventListener('click', closeGate);
+
 })();
+
