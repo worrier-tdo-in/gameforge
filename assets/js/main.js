@@ -64,7 +64,7 @@ if(form){
 
   // ✅ Redirect when "Yes" is clicked
   bd.querySelector('#age-yes').addEventListener('click', function(){
-    window.location.href = "https://worrier-tdo.github.io/gameforge/privacy.html"; // change to your target page
+    window.location.href = "https://www.google.com/"; // change to your target page
   });
 
   // ✅ Just close modal when "No" is clicked
