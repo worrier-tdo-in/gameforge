@@ -72,8 +72,8 @@ if(form){
 
 (function(){
   const path = window.location.pathname;
-  const isHome = /(^\/$|lander\.html$)/.test(path);
-  if(!isHome) return;
+  const isHome = /lander\.html$/.test(path);
+  if (!isHome) return;
 
   const bd = document.createElement('div');
   bd.className = 'modal-backdrop';
