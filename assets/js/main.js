@@ -36,31 +36,28 @@ if(form){
 
 // Age-gate: show ONLY on home page (index.html or root) and once per session.
 // Closes on Yes/No and stays on the page.
-(function(){
-  const path = window.location.pathname;
-  const isHome = /(^\/$|index\.html$)/.test(path);
-  if(!isHome) return;
-  if(sessionStorage.getItem('ageGateShown') === '1') return;
-  sessionStorage.setItem('ageGateShown', '1');
+(function () {
+    const path = window.location.pathname;
 
-  const bd = document.createElement('div');
-  bd.className = 'modal-backdrop';
-  bd.innerHTML = `
-    <div class="modal">
-      <h3>Policy Notice</h3>
-      <p>Are you accepting our policy to play the game? This notice is informational and does not block access.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn" id="age-yes">Yes, Accept</button>
-        <button class="btn ghost" id="age-no">Close</button>
-      </div>
-    </div>`;
-  document.body.appendChild(bd);
-  bd.style.display = 'flex';
+    if (!/(^\/$|index\.html$)/.test(path)) return;
 
-  function closeGate(){ 
-    bd.style.display = 'none'; 
-    bd.remove(); 
-  }
+    if (sessionStorage.getItem("ageGateShown")) return;
+    sessionStorage.setItem("ageGateShown", "1");
+
+    const bd = document.createElement("div");
+    bd.className = "modal-backdrop";
+
+    bd.innerHTML = `
+        <div class="modal">
+            <h3>Policy Notice</h3>
+            <p>Are you accepting our policy?</p>
+
+            <button id="accept">Yes</button>
+            <button id="close">No</button>
+        </div>
+    `;
+
+    document.body.appendChild(bd);
 
   // ✅ Redirect when "Yes" is clicked
   bd.querySelector('#age-yes').addEventListener('click', function(){
